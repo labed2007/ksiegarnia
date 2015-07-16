@@ -1,14 +1,16 @@
 <?php
 
 
-class book {
+class book
+{
 
-    private $booktitle;
+    private $bookTitle;
 
-    private function __construct($booktitle) {
-           $this->booktitle = $booktitle;
+    private function __construct($bookTitle)
+    {
+        $this->bookTitle = $bookTitle;
 
-       }
+    }
 
 }
 
