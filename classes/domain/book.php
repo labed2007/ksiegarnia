@@ -3,9 +3,9 @@
 
 class book {
 
-    public $booktitle;
+    private $booktitle;
 
-    public function __construct($booktitle) {
+    private function __construct($booktitle) {
            $this->booktitle = $booktitle;
 
        }
