@@ -1,3 +1,19 @@
+<html>
+
+<form action="viewer.php" method="GET">
+
+    <div>
+
+       Book title:<br />
+
+        <input name="title" value="" /><br />
+        <input type="submit" value="Add book" name="submit" />
+        <input type="submit" value="Show books" name="submit" />
+    </div>
+
+
+</form>
+
 <?php
 include 'classes/domain/book.php';
 include 'classes/repository/bookRepository.php';
@@ -16,3 +32,5 @@ foreach($ksiazki->getBooks() as $book) {
 }
 
 ?>
+
+</html>
