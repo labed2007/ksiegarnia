@@ -18,7 +18,8 @@ class bookRepository
 
     public function getBook()
     {
-        return $bookList;//print_r(array_values($tablica));
+        return $bookList;
+        //print_r(array_values($tablica));
     }
 
 }
