@@ -3,12 +3,28 @@
 
 class book {
 
-    private $booktitle;
+    private $title;
 
-    private function __construct($booktitle) {
-           $this->booktitle = $booktitle;
+    public function __construct($title) {
+           $this->title = $title;
 
        }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 
 }
 

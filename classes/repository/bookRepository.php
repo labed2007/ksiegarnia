@@ -9,17 +9,27 @@
 class bookRepository
 {
 
-    private $bookList = array();
+    /**
+     * @var
+     */
+    private $bookList;
 
+    /**
+     * Metoda dodaje książkę do repozytorium
+     * @param Book $book
+     */
     public function addBook($book)
     {
-        $bookList[] = $book;
+        $this->bookList[] = $book;
     }
 
-    public function getBook()
+    /**
+     * Metoda zrwaca listę książek
+     * @return array $book
+     */
+    public function getBooks()
     {
-        return $bookList;
-        //print_r(array_values($tablica));
+        return $this->bookList;
     }
 
 }
