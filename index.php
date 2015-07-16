@@ -7,7 +7,7 @@
        Book title:<br />
 
         <input type="text" name="title" value="" /><br />
-        <input type="submit" value="Add book" name="submit" />
+        <input type="submit" value="Add book." name="submit" />
         <input type="submit" value="Show books" name="submit" />
     </div>
 
