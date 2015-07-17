@@ -15,9 +15,13 @@ class bookRepository
     private $fileName = 'database.txt';
     private $bookList;
 
+
     function __construct()
     {
-        $this->load();
+
+        //$this->load();
+
+
     }
 
     /**
@@ -28,18 +32,35 @@ class bookRepository
 
     public function addBook($book)
     {
-        $this->bookList[] = $book;
-        #SQL dodanie jednego
-        mysql_query()
+        $query = 'INSERT INTO ksiazki (tytul) values (\''. $book->getTitle(). '\')';
+        config::getMysqlConnection()->query($query);
     }
+
     /**
      * Metoda zrwaca listę książek
      * @return array $book
      */
     public function getBookList()
     {
+        $query = "SELECT id, tytul FROM ksiazki";
+        $result = config::getMysqlConnection()->query($query);
+        $this->bookList = [];
+        while($row = mysqli_fetch_array($result)) {
+            $id = $row["id"];
+            $tytul = $row["tytul"];
+            $this->bookList[] = new Book($tytul,$id);
+        }
         return $this->bookList;
-        #SQL pobranie wszystkich
+    }
+    public function getBook($index) {
+
+
+        $query = 'SELECT id, tytul FROM ksiazki WHERE id = (\''. $index. '\')';
+        $result = config::getMysqlConnection()->query($query);
+        $row = mysqli_fetch_array($result);
+        $id = $row["id"];
+        $tytul = $row["tytul"];
+        return new Book($tytul,$id);
     }
 
     public function setBookList($bookList)
@@ -57,19 +78,17 @@ class bookRepository
     }
 
 
-    public function editBook($index,$title)
+    public function editBook($index, $title)
     {
-        $this->getBookList()[$index]->setTitle($title);
-        $this->save();
-        #SQL edycja pojedynczego
+        $query = 'UPDATE ksiazki set tytul = \''. $title. '\' WHERE id = '. $index;
+        config::getMysqlConnection()->query($query);
     }
 
 
     public function deleteBook($index)
     {
-        unset($this->bookList[$index]);
-        $this->save();
-        #SQL usuniecie pojedynczego
+        $query = "DELETE FROM ksiazki WHERE id = $index";
+        $result = config::getMysqlConnection()->query($query);
     }
 
     public function save()

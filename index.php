@@ -1,3 +1,28 @@
+<?php
+include 'classes/domain/book.php';
+include 'classes/domain/config.php';
+include 'classes/repository/bookRepository.php';
+
+$ksiazki = new bookRepository();
+$config = new config();
+
+//($config->getConfiguration()->database->login);
+
+//Obsługa dodania książki
+if (isset($_POST["title"])) {
+    $newitem = $_POST["title"];
+    $ksiazki->addBook(new book($newitem));
+}
+
+//Obsłuiga usunięcia ksiązki
+if (isset($_GET["deleteId"])) {
+    $ksiazki->deleteBook($_GET["deleteId"]);
+}
+
+//
+
+?>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
@@ -17,39 +42,20 @@
 
 </form>
 
-<?php
-include 'classes/domain/book.php';
-include 'classes/repository/bookRepository.php';
 
-$ksiazki = new bookRepository();
-
-//Obsługa dodania książki
-if (isset($_POST["title"])) {
-    $newitem = $_POST["title"];
-    $ksiazki->addBook(new book($newitem));
-}
-
-//Obsłuiga usunięcia ksiązki
-if (isset($_GET["deleteId"])) {
-    $ksiazki->deleteBook($_GET["deleteId"]);
-}
-
-//
-
-?>
 <table border="1" style="width:100%">
     <tr>
 <td>L. p.</td><td>Nazwa książki</td><td>Usuń</td><td>Edytuj</td></tr>
 
     <?php
     $i=1;
-    foreach($ksiazki->getBookList() as $bookIndex => $book) {
+    foreach($ksiazki->getBookList() as $book) {
     ?>
     <tr>
         <td><?php echo $i; $i++;?></td>
         <td><?php echo $book->getTitle();?></td>
-        <td><a href="index.php?deleteId=<?php echo $bookIndex;?>">Usuń</a></td>
-        <td><a href="edit.php?editId=<?php echo $bookIndex;?>">Edytuj</a></td>
+        <td><a href="index.php?deleteId=<?php echo $book->getId();?>">Usuń</a></td>
+        <td><a href="edit.php?editId=<?php echo $book->getId();?>">Edytuj</a></td>
         <td></td>
     </tr>
 
