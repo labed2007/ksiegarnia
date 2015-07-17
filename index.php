@@ -24,8 +24,7 @@ if (isset($_GET["deleteId"])) {
 ?>
 
 <html>
-<head>
-    <title>Księgarnia</title>
+<head><title>Księgarnia</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -33,24 +32,24 @@ if (isset($_GET["deleteId"])) {
 <body>
 <div class="row">
     <div class="span12">
-        <h1>Księgarnia z książkami</h1>
 
-        <form action="index.php" method="POST">
+        <h1 class="text-center">Księgarnia z książkami</h1>
+
+        <form class="input-append" action="index.php" method="POST">
 
             <div>
 
                 Book title:<br/>
 
-                <input type="text" name="title" value=""/><br/>
-                <input type="submit" value="Add book" name="add"/>
-                <input type="submit" value="Show books" name="del"/>
+                <input class="" type="text" name="title" value=""/>
+                <input class="btn btn-large btn btn-success" type="submit" value="Add book" name="add"/>
+                <input class="btn btn-large btn btn-info" type="submit" value="Show books" name="del"/>
             </div>
-
 
         </form>
 
 
-        <table border="1" style="width:100%">
+        <table border="1" style="width:100%" >
             <tr>
                 <td>L. p.</td>
                 <td>Nazwa książki</td>
@@ -74,6 +73,7 @@ if (isset($_GET["deleteId"])) {
             <?PHP }; ?>
         </table>
     </div>
+
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
