@@ -25,41 +25,59 @@ if (isset($_GET["deleteId"])) {
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <title>Księgarnia</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
+<body>
+<div class="row">
+    <div class="span12">
+        <h1>Księgarnia z książkami</h1>
 
-<form action="index.php" method="POST">
+        <form action="index.php" method="POST">
 
-    <div>
+            <div>
 
-       Book title:<br />
+                Book title:<br/>
 
-        <input type="text" name="title" value="" /><br />
-        <input type="submit" value="Add book" name="add" />
-        <input type="submit" value="Show books" name="del" />
+                <input type="text" name="title" value=""/><br/>
+                <input type="submit" value="Add book" name="add"/>
+                <input type="submit" value="Show books" name="del"/>
+            </div>
+
+
+        </form>
+
+
+        <table border="1" style="width:100%">
+            <tr>
+                <td>L. p.</td>
+                <td>Nazwa książki</td>
+                <td>Usuń</td>
+                <td>Edytuj</td>
+            </tr>
+
+            <?php
+            $i = 1;
+            foreach ($ksiazki->getBookList() as $book) {
+                ?>
+                <tr>
+                    <td><?php echo $i;
+                        $i++; ?></td>
+                    <td><?php echo $book->getTitle(); ?></td>
+                    <td><a href="index.php?deleteId=<?php echo $book->getId(); ?>">Usuń</a></td>
+                    <td><a href="edit.php?editId=<?php echo $book->getId(); ?>">Edytuj</a></td>
+                    <td></td>
+                </tr>
+
+            <?PHP }; ?>
+        </table>
     </div>
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 
-</form>
-
-
-<table border="1" style="width:100%">
-    <tr>
-<td>L. p.</td><td>Nazwa książki</td><td>Usuń</td><td>Edytuj</td></tr>
-
-    <?php
-    $i=1;
-    foreach($ksiazki->getBookList() as $book) {
-    ?>
-    <tr>
-        <td><?php echo $i; $i++;?></td>
-        <td><?php echo $book->getTitle();?></td>
-        <td><a href="index.php?deleteId=<?php echo $book->getId();?>">Usuń</a></td>
-        <td><a href="edit.php?editId=<?php echo $book->getId();?>">Edytuj</a></td>
-        <td></td>
-    </tr>
-
-    <?PHP };?>
-
-  </table>
+</body>
 </html>
