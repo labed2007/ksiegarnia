@@ -1,0 +1,22 @@
+
+img {
+    opacity: 0.3;
+    filter: alpha(opacity=40);
+
+
+}
+
+#top {
+    z-index: 2;
+    position: absolute;
+    margin: auto;
+    width: 40%;
+
+   }
+
+#under {
+    z-index: 1;
+    position: relative;
+
+}
+
