@@ -1,4 +1,8 @@
-
+* {
+    box-sizing: border-box;
+    -webkit-transition: all 0.225s ease-out;
+    border-radius: 3px;
+}
 img {
     position: absolute;
     z-index: 1;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
    <database>
-       <login></login>
+       <login>root</login>
        <password></password>
-       <database></database>
-       <host></host>
+       <database>ksiegarnia</database>
+       <host>localhost</host>
    </database>
 </config>
