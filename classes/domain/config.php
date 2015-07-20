@@ -31,6 +31,7 @@ class config {
     public static function getMysqlConnection()
     {
         return self::$mysqlConnection;
+
     }
 
     /**
@@ -52,7 +53,6 @@ class config {
             $this->getConfiguration()->database->password,
             $this->getConfiguration()->database->dbname
             );
-
     }
 
 }

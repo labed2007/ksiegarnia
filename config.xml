@@ -2,8 +2,8 @@
 <config>
    <database>
        <login>root</login>
-       <password></password>
-       <database>ksiegarnia</database>
+       <password>rootpass</password>
+       <dbname>ksiegarnia</dbname>
        <host>localhost</host>
    </database>
 </config>
