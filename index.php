@@ -52,7 +52,7 @@ if (isset($_GET["deleteId"])) {
         </form>
 
 
-        <table class="table table-striped" border="1" style="width:100%">
+        <table class="table table-striped" border="1" style="width:100%" >
             <tr>
                 <td>L. p.</td>
                 <td>Nazwa książki</td>
@@ -80,7 +80,7 @@ if (isset($_GET["deleteId"])) {
 <script src="js/bootstrap.min.js"></script>
     <img src="/img/bookImg.jpg" >
 </body>
+</div>
+</div>
 <footer>Hello, how do you do?</footer>
-</div>
-</div>
 </html>
