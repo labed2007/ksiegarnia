@@ -34,21 +34,18 @@ if (isset($_GET["deleteId"])) {
 
 <div class="row">
 <div class="span12">
+
 <div id="top" class="text-center">
 
         <h1>Księgarnia z książkami</h1>
 
         <form  action="index.php" method="POST">
 
-
-
             <div class="text-info"><strong>Book title:</strong><br/></div>
                 <input class="" type="text" name="title" size=50 value=""/>
                 <br />
                 <input class="btn btn-large btn btn-success" type="submit" value="Add book" name="add"/>
                 <input class="btn btn-large btn btn-info" type="submit" value="Show books" name="del"/>
-
-
         </form>
 
 
@@ -64,23 +61,23 @@ if (isset($_GET["deleteId"])) {
             $i = 1;
             foreach ($ksiazki->getBookList() as $book) {
                 ?>
-                <tr>
-                    <td><?php echo $i; $i++; ?></td>
-                    <td><?php echo $book->getTitle(); ?></td>
-                    <td><a href="index.php?deleteId=<?php echo $book->getId(); ?>">Usuń</a></td>
-                    <td><a href="edit.php?editId=<?php echo $book->getId(); ?>">Edytuj</a></td>
-                 </tr>
+            <tr>
+                 <td><?php echo $i; $i++; ?></td>
+                 <td><?php echo $book->getTitle(); ?></td>
+                 <td><a href="index.php?deleteId=<?php echo $book->getId(); ?>">Usuń</a></td>
+                 <td><a href="edit.php?editId=<?php echo $book->getId(); ?>">Edytuj</a></td>
+            </tr>
 
             <?PHP }; ?>
         </table>
-    </div>
+            </div>
 
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
     <img src="/img/bookImg.jpg" >
+</div>
+</div>
 </body>
-</div>
-</div>
-<footer>Hello, how do you do?</footer>
+<div id="footer"><footer>Hello, how do you do?</footer></div>
 </html>
