@@ -3,6 +3,7 @@
     -webkit-transition: all 0.3s ease-out;
     border-radius: 3px;
 }
+
 img {
     position: absolute;
     z-index: 1;
@@ -16,12 +17,27 @@ img {
 #top {
     position: absolute;
     z-index: 2;
-    width: 100%;
     width: 40%;
     margin: auto;
    }
 
+@keyframes moja_animacja {
+    0% {
+        background-color: white;
+        color: black;
+    }
+    50% {
+        background-color: gray;
+        color: white;
+    }
+    100% {
+        background-color: white;
+        color: black;
+    }
+}
+
 #footer {
+    animation:moja_animacja 10s infinite;
     position:fixed;
     bottom:0;
     width:100%;
